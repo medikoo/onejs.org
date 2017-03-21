@@ -1,0 +1,5 @@
+{
+	"rules": {
+    "id-length": ["error", { "exceptions": ["a", "i", "p"] } ]
+  }
+}
