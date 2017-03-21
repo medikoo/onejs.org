@@ -32,7 +32,6 @@ document.addEventListener("click", (ev) => {
 		return;
 	}
 
-
 	while (el && el.nodeName.toLowerCase() !== "a") el = el.parentNode;
 
 	if (isExternal(el, el)) return;
