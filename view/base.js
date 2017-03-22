@@ -1,6 +1,3 @@
-/* eslint no-eval: "off", no-shadow: ["error", { "allow": ["assetsRoot"] }],
-          prefer-template: "off" */
-
 "use strict";
 
 const { assetsRoot } = require("../services/env")
