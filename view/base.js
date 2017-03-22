@@ -6,7 +6,7 @@
 const document             = require("../services/document")
     , { assetsRoot, role } = require("../services/env")
 
-    , { footer, h1, header, link, main, script } = require("../services/domjs").ns;
+    , { footer, header, link, main, script } = require("../services/domjs").ns;
 
 exports.head = function () {
 	if (role === "server") {
@@ -26,7 +26,7 @@ exports.head = function () {
 };
 
 exports.body = function () {
-	header(h1("onejs.org"));
+	header();
 	main();
 	footer();
 };
