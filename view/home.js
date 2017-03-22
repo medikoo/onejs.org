@@ -2,7 +2,6 @@
 
 const { h1 } = require("../services/domjs").ns;
 
-
 exports._parent = require("./base");
 
 exports.main = function () {
