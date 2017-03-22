@@ -29,7 +29,7 @@ if (env.env === "development") {
 }
 
 // Serve system common static files
-app.use(st({ path: assetsDir, passthrough: true, index: false }));
+app.use(st({ path: assetsDir, passthrough: true, index: false, cache: env.env !== "development" }));
 
 // Serve client program
 app.use(clientApp);
