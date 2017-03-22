@@ -4,7 +4,7 @@
     "body-tense": [1, "always", ["present-imperative"]],
     "footer-leading-blank": [2, "always"],
     "footer-tense": [1, "always", ["present-imperative"]],
-    "header-max-length": [2, "always", 50],
+    "header-max-length": [2, "always", 72],
     "lang": [1, "always", "eng"],
     "scope-case": [2, "always", "lowerCase"],
     "subject-case": [2, "always", "lowerCase"],
