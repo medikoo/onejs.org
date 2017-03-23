@@ -23,6 +23,9 @@
     "st": "^1.2",
     "webmake-middleware": "^0.1.2"
   },
+  "devDependences": {
+    "eslint": "^3.18"
+  },
   "eslintConfig": {
     "extends": "eslint:all",
     "root": true,
@@ -66,8 +69,7 @@
     }
   },
   "scripts": {
-    "setup": "node server/scripts/setup.js",
-    "start": "node server/scripts/setup.js && node server/processes/master.js"
+    "lint": "eslint --ignore-path=.gitignore ."
   },
   "license": "MIT"
 }
