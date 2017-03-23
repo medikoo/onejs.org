@@ -1,9 +1,9 @@
 "use strict";
 
-const { h1 } = require("../services/domjs").ns;
+const { h1, main } = require("../services/domjs").ns;
 
 exports._parent = require("./base");
 
-exports.main = function () {
-	h1("onejs.org");
+exports.body = function () {
+	main({ class: "cover" }, h1("onejs.org"));
 };
