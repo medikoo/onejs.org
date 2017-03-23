@@ -18,7 +18,7 @@ const isExternal = (ahref, target) => {
 	if (ahref.protocol && ahref.protocol !== ":" && ahref.protocol !== location.protocol) {
 		return true;
 	}
-	if (ahref.host && (ahref.host !== location.host)) return true;
+	if (ahref.host && ahref.host !== location.host) return true;
 	if (target.getAttribute("rel") === "server") return true;
 	if (target.getAttribute("target") === "_blank") return true;
 	return false;

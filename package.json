@@ -41,6 +41,7 @@
       "id-length": ["error", { "exceptions": ["e"] } ],
       "indent": ["error", "tab"],
       "max-len": ["error", 100],
+      "max-params": "off",
       "multiline-ternary": "off",
       "newline-before-return": "off",
       "no-magic-numbers": ["error", { "ignore": [-1] }],

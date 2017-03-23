@@ -22,10 +22,10 @@ delete window.process;
 
 const debug = require("debug")("service");
 
-const env = Object.assign(require("../../services/env"), ${JSON.stringify({
+const env = Object.assign(require("../../services/env"), ${ JSON.stringify({
 	assetsRoot: env.assetsRoot,
 	role: "client"
-}, null, "\t")});
+}, null, "\t") });
 
 module.exports = function (processName) {
 	env.processName = processName;
