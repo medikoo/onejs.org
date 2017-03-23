@@ -6,7 +6,7 @@ const debug           = require("debug")("service")
 
 const onNewPathname = (pathname) => {
 	if (!pathname.endsWith("/")) {
-		locationService.goto(`${ pathname }/"`);
+		locationService.goto(`${ pathname }/`);
 		return;
 	}
 	viewRouter.route(pathname);
