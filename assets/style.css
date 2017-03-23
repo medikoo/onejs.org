@@ -6,10 +6,10 @@ body {
 	width: 100%; height: 100%;
 	line-height: 1.5;
 	background: white;
-	color: #222;
+	color: #333;
 }
 
 .cover { padding-top: 10vh; text-align: center; }
 
-.cover h1 { font-size: 6rem; color: #333; }
+.cover h1 { font-size: 6rem; color: #666; }
 .cover p { font-size: 1.5rem; line-height: 3rem; }
