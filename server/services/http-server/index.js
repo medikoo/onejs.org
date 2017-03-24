@@ -16,6 +16,13 @@ const { resolve }      = require("path")
 		, assetsDir = resolve(rootDir, "assets")
     , app = connect(), server = createServer(app);
 
+// At this point we handle only GET requests
+app.use((req, res, next) =>	{
+	if (req.method === "GET") return next();
+	res.statusCode = 404;
+	return res.end("Not Found");
+});
+
 // Favicon
 app.use(serveFavicon(resolve(assetsDir, "favicon.ico")));
 
