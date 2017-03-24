@@ -6,7 +6,22 @@ body {
 	background: white;
 	color: #333;
 }
+.content { padding: 0 20px; min-width: 800px; max-width: 1200px; 	margin: 0 auto; }
 
-.cover { padding-top: 10vh; text-align: center; }
+/* Cover page */
+.cover { padding-top: 10vh; text-align: center; display: block; }
 .cover h1 { font-size: 6rem; color: #666; }
 .cover p { font-size: 1.5rem; line-height: 3rem; }
+
+/* Package page */
+header > .content { display: flex; align-items: center; }
+header > .content > * { padding: 0 10px; }
+header h1 { flex-grow: 2; font-size: 2rem; }
+
+main { display: flex; align-items: center; }
+
+main > * { padding: 1.5rem 10px; }
+
+main > aside { width: 300px; background: #ddd; }
+
+footer { text-align: center; margin-top: 1.5rem; }
