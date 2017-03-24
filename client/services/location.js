@@ -1,7 +1,7 @@
 "use strict";
 
 const ensureString = require("es5-ext/object/validate-stringifiable-value")
-    , debug       = require("debug")("service")
+    , debug        = require("debug")("service")
 
     , isExt = RegExp.prototype.test.bind(/\.[a-zA-Z0-9]+$/)
     , ahrefTpl = document.createElement("a")
