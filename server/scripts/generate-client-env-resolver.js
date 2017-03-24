@@ -1,6 +1,6 @@
 "use strict";
 
-require("../lib/resolve-env");
+require("../lib/setup-env-service");
 
 const { resolve } = require("path")
     , writeFile   = require("fs2/write-file")

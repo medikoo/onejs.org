@@ -3,5 +3,5 @@
 Error.stackTraceLimit = Infinity;
 
 // Initialize process services
-require("../lib/resolve-env")("master");
+require("../lib/setup-env-service")("master");
 require("../services/http-server");
