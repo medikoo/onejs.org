@@ -50,4 +50,10 @@ exports.goto = function (href) {
 	exports.emit("change", pathname);
 };
 
+window.addEventListener("popstate", () => {
+	if (pathname === location.pathname) return;
+	({ pathname } = location);
+	exports.emit("change", pathname);
+}, false);
+
 debug("location");
