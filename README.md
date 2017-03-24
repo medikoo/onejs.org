@@ -1,14 +1,14 @@
 # [onejs.org](https://onejs.org)
 ## Simple documentation website for JS packages (WIP)
 
-### Installation
+### Local deployment
 
-Requires relatively recent (v4+) version of [Node.js](https://nodejs.org/en/) on board
+Prerequisites: Relatively recent (v4+) version of [Node.js](https://nodejs.org/en/) on board
 
 	$ git clone git@github.com:medikoo/onejs.org.git && cd onejs.org
 	$ npm start
 
-If no specific port was provided in eventual [environment](#enviroment) configuration, the application will be accessible at `3177` port:  [http://localhost:3177](http://localhost:3177) 
+If not stated otherwise in an eventual [environment](#enviroment) configuration, the application will be accessible at `3177` port:  [http://localhost:3177](http://localhost:3177) 
 
 ### Environment settings
 
