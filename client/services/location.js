@@ -37,7 +37,7 @@ document.addEventListener("click", (ev) => {
 	if (isExternal(el, el)) return;
 	if (isExt(el.href)) return;
 
-	ev.prevDefault();
+	ev.preventDefault();
 
 	exports.goto(el.href);
 }, false);
