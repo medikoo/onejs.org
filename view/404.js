@@ -1,9 +1,9 @@
 "use strict";
 
-const { p } = require("../services/domjs").ns;
+const { h2 } = require("../services/domjs").ns;
 
-exports._parent = require("./base");
+exports._parent = require("./error-base");
 
 exports.main = function () {
-	p("Page Not Found");
+	h2("404: Page Not Found");
 };
