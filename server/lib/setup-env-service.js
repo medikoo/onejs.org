@@ -3,7 +3,8 @@
 if (!process.env.DEBUG) {
 	process.env.DEBUG = `*,-${ [
 		"compression",
-		"connect:dispatcher"
+		"connect:dispatcher",
+		"tar-pack"
 	].join(",-") }`;
 }
 

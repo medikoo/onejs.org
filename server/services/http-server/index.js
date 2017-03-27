@@ -11,6 +11,7 @@ const { resolve }      = require("path")
 
     , env              = require("../../../services/env")
 		, clientApp        = require("./client-app")
+		, rest             = require("./rest")
 
     , rootDir = resolve(__dirname, "../../../")
 		, assetsDir = resolve(rootDir, "assets")
@@ -37,6 +38,9 @@ if (env.env === "development") {
 
 // Serve system common static files
 app.use(st({ path: assetsDir, passthrough: true, index: false, cache: env.env !== "development" }));
+
+// Handle REST like queries
+app.use(rest);
 
 // Serve client program
 app.use(clientApp);
