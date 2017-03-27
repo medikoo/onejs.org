@@ -31,6 +31,7 @@ if (!isValue(env.env)) {
 } else if (!envOptions.has(env.env)) {
 	throw new Error(`Invalid ENV setting: ${ env.env }`);
 }
+process.env.NODE_ENV = env.env;
 
 env.port = env.port ? ensureNaturalNumber(env.port) : DEFAULT_PORT;
 
