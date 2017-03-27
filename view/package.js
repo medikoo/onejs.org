@@ -13,5 +13,5 @@ exports.header = function () {
 
 exports.main = function () {
 	aside("Aside");
-	section("Main section");
+	section(this.documentation);
 };
