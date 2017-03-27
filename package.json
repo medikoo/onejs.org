@@ -8,9 +8,11 @@
     "url": "git://github.com/medikoo/onejs.org.git"
   },
   "dependencies": {
+    "builtins": "^1.0.3",
     "compression": "^1.6.2",
     "connect": "^3.6",
     "debug": "^2.6.3",
+    "deferred": "^0.7.6",
     "dom-ext": "0.1",
     "domjs": "^0.3.1",
     "domjs-site-tree": "^1.0.1",
@@ -18,9 +20,13 @@
     "fs2": "^0.2.4",
     "next-tick": "1",
     "parseurl": "^1.3.1",
+    "querystring2": "1",
+    "request": "^2.81",
     "serve-favicon": "^2.4.1",
     "site-tree-router": "^2.1",
     "st": "^1.2",
+    "url3": "1",
+    "tar-pack": "^3.4",
     "webmake-middleware": "^0.1.2"
   },
   "devDependences": {
@@ -40,11 +46,12 @@
       "global-require": "off",
       "id-length": ["error", { "exceptions": ["e"] } ],
       "indent": ["error", "tab"],
+      "init-declarations": "off",
       "max-len": ["error", 100],
       "max-params": "off",
       "multiline-ternary": "off",
       "newline-before-return": "off",
-      "no-magic-numbers": ["error", { "ignore": [-1] }],
+      "no-magic-numbers": ["error", { "ignore": [-1, 0] }],
       "no-mixed-requires": "off",
       "no-mixed-spaces-and-tabs": ["error", "smart-tabs"],
       "no-multi-assign": "off",
@@ -57,6 +64,7 @@
       "no-undef": ["error", { "typeof": false }],
       "no-underscore-dangle": "off",
       "no-var": "off",
+      "no-warning-comments": ["error", { "terms": ["fixme", "xxx"], "location": "start" }],
       "object-property-newline": ["error", { "allowMultiplePropertiesPerLine": true }],
       "object-curly-spacing": ["error", "always"],
       "one-var": "off",
@@ -70,7 +78,9 @@
     }
   },
   "scripts": {
-    "lint": "eslint --ignore-path=.gitignore ."
+    "lint": "eslint --ignore-path=.gitignore .",
+    "setup": "node server/scripts/setup.js",
+    "start": "node server/scripts/setup.js && node server/processes/master.js"
   },
   "license": "MIT"
 }
