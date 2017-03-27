@@ -9,7 +9,7 @@ const onNewPathname = (pathname) => {
 		locationService.goto(`${ pathname }/`);
 		return;
 	}
-	viewRouter.route(pathname);
+	viewRouter.route(pathname).done();
 };
 
 locationService.on("change", onNewPathname);
