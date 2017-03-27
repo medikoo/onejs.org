@@ -23,7 +23,7 @@
     "querystring2": "1",
     "request": "^2.81",
     "serve-favicon": "^2.4.1",
-    "site-tree-router": "^2.1",
+    "site-tree-router": "^2.2",
     "st": "^1.2",
     "url3": "1",
     "tar-pack": "^3.4",
