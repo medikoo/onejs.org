@@ -2,7 +2,8 @@
 
 "use strict";
 
-const debug          = require("debug")("service")
+const deferred       = require("deferred")
+    , debug          = require("debug")("service")
     , DomjsSiteTree  = require("domjs-site-tree")
     , SiteTreeRouter = require("site-tree-router")
     , domjs          = require("./domjs")
@@ -11,5 +12,6 @@ const debug          = require("debug")("service")
 
     , siteTree = new DomjsSiteTree(domjs);
 
-module.exports = new SiteTreeRouter(routes, siteTree, { notFound: notFoundView });
+module.exports = new SiteTreeRouter(routes, siteTree,
+	{ notFound: notFoundView, promiseResultImplementation: deferred });
 debug("view-router");
