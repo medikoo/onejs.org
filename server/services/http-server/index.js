@@ -1,3 +1,5 @@
+// HTTP server configuration
+
 "use strict";
 
 const { resolve }      = require("path")

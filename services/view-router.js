@@ -1,3 +1,5 @@
+// View router service, exposes routable view tree, which is bound to process main document
+
 "use strict";
 
 const debug          = require("debug")("service")

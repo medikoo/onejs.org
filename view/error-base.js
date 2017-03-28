@@ -1,3 +1,5 @@
+// Base for error views
+
 "use strict";
 
 const { h1 } = require("../services/domjs").ns;

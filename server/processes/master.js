@@ -1,3 +1,5 @@
+// Initializes server master process
+
 "use strict";
 
 Error.stackTraceLimit = Infinity;

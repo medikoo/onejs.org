@@ -1,3 +1,5 @@
+// Homepage view
+
 "use strict";
 
 const { a, h1, p } = require("../services/domjs").ns;

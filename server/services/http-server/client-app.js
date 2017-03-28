@@ -1,3 +1,5 @@
+// Serves client SPA application HTML page
+
 "use strict";
 
 const { extname } = require("path")

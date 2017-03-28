@@ -1,3 +1,5 @@
+// Generates env service resolver dedicated for client side
+
 "use strict";
 
 require("../lib/setup-env-service");

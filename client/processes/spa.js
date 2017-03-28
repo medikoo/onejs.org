@@ -1,3 +1,5 @@
+// Initializaton of Single Page Application process
+
 "use strict";
 
 Error.stackTraceLimit = Infinity;

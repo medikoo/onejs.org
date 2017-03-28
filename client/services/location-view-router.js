@@ -1,3 +1,6 @@
+// Bind view router to url address
+// This module ensures views are automatically routed to corresponding urls in address bar
+
 "use strict";
 
 const debug           = require("debug")("service")

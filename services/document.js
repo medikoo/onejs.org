@@ -1,6 +1,9 @@
 /* global document */
 /* eslint no-shadow: ["error", { "allow": ["document"] }] */
 
+// Exposes process main document object
+// On client side it simply refers to global document
+
 "use strict";
 
 const isDocument = require("dom-ext/html-document/is-html-document")

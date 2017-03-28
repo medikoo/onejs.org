@@ -1,3 +1,5 @@
+// Resolve from npm registry package meta data that we need
+
 "use strict";
 
 const Deferred      = require("deferred")

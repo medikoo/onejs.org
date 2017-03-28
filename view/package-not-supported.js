@@ -1,3 +1,5 @@
+// View dedicated for not supported packages
+
 "use strict";
 
 const { a, h2, p } = require("../services/domjs").ns;

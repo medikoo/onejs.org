@@ -1,3 +1,5 @@
+// Exposes process main domjs (DOM template engine) instance
+
 "use strict";
 
 const Domjs    = require("domjs")

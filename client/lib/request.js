@@ -1,3 +1,5 @@
+// Simple XMLHttpRequest -> promise handler
+
 "use strict";
 
 const deferred  = require("deferred/deferred")

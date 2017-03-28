@@ -1,3 +1,5 @@
+// Package documentation view
+
 "use strict";
 
 const { a, aside, h1, p, section } = require("../services/domjs").ns;

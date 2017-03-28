@@ -1,3 +1,6 @@
+// View <-> url mappings
+// Here we indicate at which urls which views are shown
+
 "use strict";
 
 const isPackageNameValid      = require("../lib/is-package-name-valid")

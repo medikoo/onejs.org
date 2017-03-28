@@ -1,3 +1,5 @@
+// Initialize and resolve server environment settings
+
 "use strict";
 
 if (!process.env.DEBUG) {

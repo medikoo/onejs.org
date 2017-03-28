@@ -1,3 +1,5 @@
+// Base view, ancestor of all views
+
 "use strict";
 
 const { assetsRoot } = require("../services/env")

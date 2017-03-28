@@ -1,3 +1,5 @@
+// 404 page
+
 "use strict";
 
 const { h2 } = require("../services/domjs").ns;
