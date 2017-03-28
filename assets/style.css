@@ -14,14 +14,20 @@ body {
 .cover p { font-size: 1.5rem; line-height: 3rem; }
 
 /* Package page */
-header > .content { display: flex; align-items: center; }
-header > .content > * { padding: 0 10px; }
-header h1 { flex-grow: 2; font-size: 2rem; }
+header { background: #fff985; color: #1c1c1c; outline: 1px solid #ababab; text-shadow: 2px 2px 4px #fff; }
+header > .content { display: flex; align-items: baseline; }
+header > .content > * { padding: 0 5px; }
+header > .content > *:first-child { padding-left: 10px; }
+header > .content > *:last-child { padding-right: 10px; }
+header h1 { font-size: 2rem; line-height: 3rem; }
+.header-version { font-size: 1.5rem; color: #777; }
+.header-repo-link { flex-grow: 2; text-align: right; }
+.header-repo-link img { height: 25px; opacity: 0.8; vertical-align: -3px; }
 
-main { display: flex; align-items: center; }
+main { display: flex; align-items: stretch; }
 
 main > * { padding: 1.5rem 10px; }
 
-main > aside { width: 300px; background: #ddd; }
+main > aside { width: 300px; flex-shrink: 0; background: #ddd; }
 
 footer { text-align: center; margin-top: 1.5rem; }
