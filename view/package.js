@@ -2,10 +2,7 @@
 
 "use strict";
 
-const MarkdownIt     = require("markdown-it")
-    , { assetsRoot } = require("../services/env")
-
-		, md = new MarkdownIt();
+const { assetsRoot } = require("../services/env");
 
 const { a, aside, h1, img, p, section } = require("../services/domjs").ns;
 
@@ -21,6 +18,6 @@ exports.header = function () {
 };
 
 exports.main = function () {
-	aside("Aside");
-	section({ class: "markdown" }).innerHTML = md.render(this.documentation);
+	aside(this.toc);
+	section({ class: "markdown" }, this.documentation);
 };
