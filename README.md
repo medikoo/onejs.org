@@ -3,12 +3,12 @@
 
 ### Local deployment
 
-Prerequisites: Relatively recent (v4+) version of [Node.js](https://nodejs.org/en/) on board
+Pre-requisites: [Git](https://git-scm.com/) and relatively recent (v4+) version of [Node.js](https://nodejs.org/en/) and [npm](https://www.npmjs.com/) on board
 
 	$ git clone git@github.com:medikoo/onejs.org.git && cd onejs.org
 	$ npm start
 
-If not stated otherwise (in an eventual [environment](#enviroment) configuration), the application will be accessible at `3177` port:  [http://localhost:3177](http://localhost:3177) 
+If not stated otherwise (in an eventual [environment](#environment) configuration), the portal will be accessible at `3177` port:  [http://localhost:3177](http://localhost:3177) 
 
 ### Environment settings
 
