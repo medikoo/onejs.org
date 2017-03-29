@@ -13,7 +13,7 @@ const ensureString = require("es5-ext/object/validate-stringifiable-value")
     , MOUSE_MIDDLE_BUTTON_CODE = 2
     , MOUSE_RIGHT_BUTTON_CODE = 3;
 
-var { pathname } = location;
+var href;
 
 require("event-emitter")(exports);
 
@@ -46,18 +46,28 @@ document.addEventListener("click", (ev) => {
 	exports.goto(el.href);
 }, false);
 
-exports.goto = function (href) {
-	ahrefTpl.href = ensureString(href);
-	if (pathname === ahrefTpl.pathname) return;
-	({ pathname } = ahrefTpl);
-	history.pushState({}, "", pathname);
-	exports.emit("change", pathname);
+exports.onChange = () => {
+	ahrefTpl.href = location.href;
+	if (href !== location.href) {
+		({ href } = location);
+		exports.emit("change", ahrefTpl.pathname);
+	}
+	const hash = ahrefTpl.hash.slice(1);
+
+	if (hash) {
+		const el = document.getElementById(hash);
+
+		if (!el) return;
+		if (el.getAttribute("data-hash-auto-scroll") === "0") return;
+		el.scrollIntoView(true);
+	}
 };
 
-window.addEventListener("popstate", () => {
-	if (pathname === location.pathname) return;
-	({ pathname } = location);
-	exports.emit("change", pathname);
-}, false);
+exports.goto = (newHref) => {
+	ahrefTpl.href = ensureString(newHref);
+	if (ahrefTpl.href !== location.href) history.pushState({}, "", ahrefTpl.href);
+	exports.onChange();
+};
 
+exports.onChange();
 debug("location");
