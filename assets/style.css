@@ -5,7 +5,6 @@ body {
 	line-height: 1.5;
 	background: white;
 	color: #333;
-	padding-top: 3rem;
 }
 .content { padding: 0 20px; min-width: 800px; max-width: 1200px; 	margin: 0 auto; }
 
@@ -15,6 +14,9 @@ body {
 .cover p { font-size: 1.5rem; line-height: 3rem; }
 
 /* Package page */
+body.package {
+	padding-top: 3rem; /* leverage fixed header */
+}
 header {
 	background: #fff985; color: #1c1c1c; outline: 1px solid #ababab; text-shadow: 2px 2px 4px #fff;
 	position: fixed; width: 100%; top:0;
