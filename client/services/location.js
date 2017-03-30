@@ -46,6 +46,8 @@ document.addEventListener("click", (ev) => {
 	exports.goto(el.href);
 }, false);
 
+// To be used when location changed
+// Can also be used to update page scroll (so eventual element referenced in hash is on top)
 exports.onChange = () => {
 	ahrefTpl.href = location.href;
 	if (href !== location.href) {
@@ -63,6 +65,7 @@ exports.onChange = () => {
 	}
 };
 
+// To be used when we want to change URL manually
 exports.goto = (newHref) => {
 	ahrefTpl.href = ensureString(newHref);
 	if (ahrefTpl.href !== location.href) history.pushState({}, "", ahrefTpl.href);
