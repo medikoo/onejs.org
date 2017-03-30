@@ -26,10 +26,7 @@ module.exports = (markdown) => {
 
 	const toc = list, overviewHeading = tmpEl.querySelector("h2");
 
-	if (overviewHeading) {
-		if (!overviewHeading.id) overviewHeading.id = "overview";
-		list.append(li(p(a({ href: `#${ overviewHeading.id }` }, "Overview"))));
-	}
+	if (overviewHeading) list.append(li(p(a({ href: "." }, "Overview"))));
 
 	for (const heading of tmpEl.querySelectorAll("h3, h4, h5, h6")) {
 		const level = Number(heading.nodeName[1]);
