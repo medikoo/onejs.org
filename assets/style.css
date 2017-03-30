@@ -20,7 +20,7 @@ body.package {
 }
 header {
 	background: #fff985; color: #1c1c1c; outline: 1px solid #ababab; text-shadow: 2px 2px 4px #fff;
-	position: fixed; width: 100%; top:0;
+	position: fixed; width: 100%; top:0; z-index: 10;
 }
 
 header > .content { display: flex; align-items: baseline; }
@@ -39,6 +39,7 @@ main { display: flex; align-items: stretch; }
 main > * { padding: 1.5rem 10px; }
 
 main > aside { width: 300px; flex-shrink: 0; background: #ddd; }
+.toc { position: sticky; top: 4.5rem; }
 
 footer { text-align: center; margin-top: 1.5rem; }
 
