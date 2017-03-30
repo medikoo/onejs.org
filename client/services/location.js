@@ -1,6 +1,6 @@
-// Url location handling:
-// Prevents page reloads on a[href] clicks and switches the urls with History API
-// Emits events on any location change
+// Location URL handling:
+// - Prevents page reloads on a[href] clicks and switches the urls with History API
+// - Emits events on any location change
 
 "use strict";
 
