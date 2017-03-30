@@ -61,7 +61,7 @@ exports.onChange = () => {
 
 		if (!el) return;
 		if (el.getAttribute("data-hash-auto-scroll") === "0") return;
-		el.scrollIntoView(true);
+		el.scrollIntoView({ behavior: "smooth" });
 	}
 };
 
