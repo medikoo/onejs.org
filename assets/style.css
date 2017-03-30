@@ -7,6 +7,7 @@ body {
 	color: #333;
 }
 .content { padding: 0 20px; min-width: 800px; max-width: 1200px; 	margin: 0 auto; }
+h1 a { color: inherit; text-decoration: none; }
 
 /* Cover page */
 .cover { padding-top: 10vh; text-align: center; display: block; }
@@ -21,18 +22,14 @@ header {
 	background: #fff985; color: #1c1c1c; outline: 1px solid #ababab; text-shadow: 2px 2px 4px #fff;
 	position: fixed; width: 100%; top:0;
 }
-h3[id]::before, h4[id]::before, h5[id]::before, h6[id]::before {
-  content:"";
-  display:block;
-  height:3rem; /* fixed header height*/
-  margin:-3rem 0 0; /* negative fixed header height */
-}
+
 header > .content { display: flex; align-items: baseline; }
 header > .content > * { padding: 0 5px; }
 header > .content > *:first-child { padding-left: 10px; }
 header > .content > *:last-child { padding-right: 10px; }
+
 header h1 { font-size: 2rem; line-height: 3rem; }
-h1 a { color: inherit; text-decoration: none; }
+
 .header-version { font-size: 1.5rem; color: #777; }
 .header-repo-link { flex-grow: 2; text-align: right; }
 .header-repo-link img { height: 25px; opacity: 0.8; vertical-align: -3px; }
@@ -44,3 +41,13 @@ main > * { padding: 1.5rem 10px; }
 main > aside { width: 300px; flex-shrink: 0; background: #ddd; }
 
 footer { text-align: center; margin-top: 1.5rem; }
+
+/* Markdown */
+
+/* fix auto scroll position */
+.markdown h3[id]::before, .markdown h4[id]::before, .markdown h5[id]::before, .markdown h6[id]::before {
+  content:"";
+  display:block;
+  height:3rem; /* fixed header height*/
+  margin:-3rem 0 0; /* negative fixed header height */
+}
