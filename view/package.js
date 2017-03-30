@@ -10,7 +10,7 @@ exports._parent = require("./package-base");
 exports._match = "name";
 
 exports.header = function () {
-	h1(a({ href: `/package/${ this.name }` }, this.name));
+	h1(a({ href: `/package/${ this.name }/` }, this.name));
 	p({ class: "header-version" }, `@  ${ this.version }`);
 	p({ class: "header-repo-link" },
 		a({ href: `https://github.com/${ this.githubPath }` },
