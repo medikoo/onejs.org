@@ -1,8 +1,9 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
+ul, ol { list-style: none; }
 
 body {
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-	line-height: 1.5;
+	line-height: 1.5rem;
 	background: white;
 	color: #333;
 }
@@ -35,11 +36,12 @@ header h1 { font-size: 2rem; line-height: 3rem; }
 .header-repo-link img { height: 25px; opacity: 0.8; vertical-align: -3px; }
 
 main { display: flex; align-items: stretch; }
-
 main > * { padding: 1.5rem 10px; }
-
 main > aside { width: 300px; flex-shrink: 0; background: #ddd; }
-.toc { position: sticky; top: 4.5rem; }
+
+.toc { position: sticky; top: 4.5rem; font-size:0.9rem; font-weight: bold; }
+.toc ul ul { padding-left: 20px; font-size: 0.9em; font-weight: normal; }
+.toc a { text-decoration: none; color: inherit;}
 
 footer { text-align: center; margin-top: 1.5rem; }
 
