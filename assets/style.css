@@ -45,7 +45,7 @@ footer { text-align: center; margin-top: 1.5rem; }
 /* Markdown */
 
 /* Fix auto scroll position */
-.markdown h3[id]::before, .markdown h4[id]::before, .markdown h5[id]::before, .markdown h6[id]::before {
+.markdown h2[id]::before, .markdown h4[id]::before, .markdown h5[id]::before, .markdown h6[id]::before {
   content:"";
   display:block;
   height:3rem; /* fixed header height*/

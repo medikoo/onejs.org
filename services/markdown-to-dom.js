@@ -22,8 +22,14 @@ module.exports = (markdown) => {
 	for (const el of tmpEl.querySelectorAll("h1")) removeElement(el);
 
 	// Build table of contents (assumption: h2 is only one main subheading of documentation)
-	var currentLevel = 3, list = ul();
-	const toc = list;
+	var currentLevel = 3, list = ul({ class: "toc" });
+
+	const toc = list, overviewHeading = tmpEl.querySelector("h2");
+
+	if (overviewHeading) {
+		if (!overviewHeading.id) overviewHeading.id = "overview";
+		list.append(li(p(a({ href: `#${ overviewHeading.id }` }, "Overview"))));
+	}
 
 	for (const heading of tmpEl.querySelectorAll("h3, h4, h5, h6")) {
 		const level = Number(heading.nodeName[1]);
