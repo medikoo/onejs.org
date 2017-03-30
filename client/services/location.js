@@ -55,14 +55,16 @@ exports.onChange = () => {
 		exports.emit("change", ahrefTpl.pathname);
 	}
 	const hash = ahrefTpl.hash.slice(1);
+	var target;
 
 	if (hash) {
-		const el = document.getElementById(hash);
-
-		if (!el) return;
-		if (el.getAttribute("data-hash-auto-scroll") === "0") return;
-		el.scrollIntoView({ behavior: "smooth" });
+		target = document.getElementById(hash);
+		if (target) {
+			if (target.getAttribute("data-hash-auto-scroll") === "0") target = null;
+		}
 	}
+	if (target) target.scrollIntoView({ behavior: "smooth" });
+	else window.scroll(0, 0);
 };
 
 // To be used when we want to change URL manually
