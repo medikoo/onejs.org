@@ -19,6 +19,12 @@ header {
 	background: #fff985; color: #1c1c1c; outline: 1px solid #ababab; text-shadow: 2px 2px 4px #fff;
 	position: fixed; width: 100%; top:0;
 }
+h3[id]::before, h4[id]::before, h5[id]::before, h6[id]::before {
+  content:"";
+  display:block;
+  height:3rem; /* fixed header height*/
+  margin:-3rem 0 0; /* negative fixed header height */
+}
 header > .content { display: flex; align-items: baseline; }
 header > .content > * { padding: 0 5px; }
 header > .content > *:first-child { padding-left: 10px; }
