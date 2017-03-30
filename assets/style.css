@@ -5,6 +5,7 @@ body {
 	line-height: 1.5;
 	background: white;
 	color: #333;
+	padding-top: 3rem;
 }
 .content { padding: 0 20px; min-width: 800px; max-width: 1200px; 	margin: 0 auto; }
 
@@ -14,7 +15,10 @@ body {
 .cover p { font-size: 1.5rem; line-height: 3rem; }
 
 /* Package page */
-header { background: #fff985; color: #1c1c1c; outline: 1px solid #ababab; text-shadow: 2px 2px 4px #fff; }
+header {
+	background: #fff985; color: #1c1c1c; outline: 1px solid #ababab; text-shadow: 2px 2px 4px #fff;
+	position: fixed; width: 100%; top:0;
+}
 header > .content { display: flex; align-items: baseline; }
 header > .content > * { padding: 0 5px; }
 header > .content > *:first-child { padding-left: 10px; }
