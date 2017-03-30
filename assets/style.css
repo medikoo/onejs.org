@@ -24,6 +24,7 @@ header > .content > * { padding: 0 5px; }
 header > .content > *:first-child { padding-left: 10px; }
 header > .content > *:last-child { padding-right: 10px; }
 header h1 { font-size: 2rem; line-height: 3rem; }
+h1 a { color: inherit; text-decoration: none; }
 .header-version { font-size: 1.5rem; color: #777; }
 .header-repo-link { flex-grow: 2; text-align: right; }
 .header-repo-link img { height: 25px; opacity: 0.8; vertical-align: -3px; }
