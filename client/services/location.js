@@ -28,24 +28,6 @@ const isExternal = (ahref, target) => {
 	return false;
 };
 
-document.addEventListener("click", (ev) => {
-	var el = ev.target;
-
-	if (ev.metaKey || ev.ctrlKey || ev.which === MOUSE_MIDDLE_BUTTON_CODE ||
-		ev.which === MOUSE_RIGHT_BUTTON_CODE) {
-		return;
-	}
-
-	while (el && el.nodeName.toLowerCase() !== "a") el = el.parentNode;
-
-	if (isExternal(el, el)) return;
-	if (isExt(el.href)) return;
-
-	ev.preventDefault();
-
-	exports.goto(el.href);
-}, false);
-
 // To be used when location changed
 // Can also be used to update page scroll (so eventual element referenced in hash is on top)
 exports.onChange = () => {
@@ -73,6 +55,24 @@ exports.goto = (newHref) => {
 	if (ahrefTpl.href !== location.href) history.pushState({}, "", ahrefTpl.href);
 	exports.onChange();
 };
+
+document.addEventListener("click", (ev) => {
+	var el = ev.target;
+
+	if (ev.metaKey || ev.ctrlKey || ev.which === MOUSE_MIDDLE_BUTTON_CODE ||
+		ev.which === MOUSE_RIGHT_BUTTON_CODE) {
+		return;
+	}
+
+	while (el && el.nodeName.toLowerCase() !== "a") el = el.parentNode;
+
+	if (isExternal(el, el)) return;
+	if (isExt(el.href)) return;
+
+	ev.preventDefault();
+
+	exports.goto(el.href);
+}, false);
 
 window.addEventListener("popstate", exports.onChange, false);
 
