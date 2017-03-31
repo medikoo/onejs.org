@@ -34,8 +34,10 @@ app.use(compression());
 
 if (env.env === "development") {
 	// Serve client JS bundle on the fly
-	app.use(webmake({ "/main.js": resolve(rootDir, "client/processes/spa.js") },
-	{ ignore: [resolve(rootDir, "node_modules/debug/src/node.js")] }));
+	app.use(webmake({
+		"/main.js": resolve(rootDir, "client/processes/spa.js"),
+		"/scripts.js": resolve(rootDir, "client/processes/scripts.js")
+	}, { ignore: [resolve(rootDir, "node_modules/debug/src/node.js")] }));
 }
 
 // Serve system common static files
