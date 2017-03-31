@@ -74,5 +74,7 @@ exports.goto = (newHref) => {
 	exports.onChange();
 };
 
+window.addEventListener("popstate", exports.onChange, false);
+
 exports.onChange();
 debug("location");
