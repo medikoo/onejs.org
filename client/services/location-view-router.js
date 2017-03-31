@@ -12,7 +12,12 @@ const onNewPathname = (pathname) => {
 		locationService.goto(`${ pathname }/`);
 		return;
 	}
-	viewRouter.route(pathname).done(locationService.onChange);
+	viewRouter.route(pathname).done(() => {
+		const loadEvent = new Event("spaviewload");
+
+		locationService.onChange();
+		window.dispatchEvent(loadEvent);
+	});
 };
 
 locationService.on("change", onNewPathname);
