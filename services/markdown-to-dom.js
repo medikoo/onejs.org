@@ -6,12 +6,25 @@ const getToId        = require("dom-ext/html-document/get-to-id-string")
 		, extendFragment = require("dom-ext/document-fragment/#/extend")
 		, debug          = require("debug")("service")
     , MarkdownIt     = require("markdown-it")
+    , hljs           = require("highlight.js")
 		, document       = require("./document")
 
 		, { a, div, li, p, ul } = require("./domjs").ns
-    , md = new MarkdownIt()
 		, tmpEl = div()
 		, removeElement = Function.prototype.call.bind(tmpEl.remove);
+
+const md = new MarkdownIt({
+	highlight (str, lang) {
+		if (lang && hljs.getLanguage(lang)) {
+			try {
+				return hljs.highlight(lang, str).value;
+			} catch (ignore) {}
+		}
+
+		// Use external default escaping
+		return "";
+	}
+});
 
 module.exports = (markdown) => {
 	const toId = getToId();
