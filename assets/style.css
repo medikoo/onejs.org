@@ -44,7 +44,7 @@ main > aside { width: 300px; flex-shrink: 0; background: #f2f3e8; }
 .toc { position: sticky; top: 4.5rem; font-size:0.9rem; font-weight: bold; }
 .toc ul ul { font-size: 0.9em; font-weight: normal; }
 .toc a { padding: 0 16px; text-decoration: none; color: inherit; display: block; }
-.toc a:hover, .toc a:focus { background: hsla(0, 0%, 100%, 0.8); }
+.toc a:hover, .toc a:focus, .toc a.link-current-target { background: hsla(0, 0%, 100%, 0.8); }
 .toc li li a { padding-left: 30px; font-weight: normal; } 
 .toc li li li a { padding-left: 50px; }
 .toc li li li li a { padding-left: 70px; }
