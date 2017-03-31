@@ -56,6 +56,7 @@
       "max-statements": ["error", 10, { "ignoreTopLevelFunctions": true }],
       "multiline-ternary": "off",
       "newline-before-return": "off",
+      "no-empty": ["error", { "allowEmptyCatch": true }],
       "no-magic-numbers": ["error", { "ignore": [-1, 0, 1] }],
       "no-mixed-requires": "off",
       "no-mixed-spaces-and-tabs": ["error", "smart-tabs"],
