@@ -62,9 +62,19 @@ footer { text-align: center; margin-top: 1.5rem; }
   margin:-3.75rem 0 0; /* negative fixed header height */
 }
 .markdown a { color: #b0753b; }
+.markdown code {
+	color: #383a42; background: #fafafa; padding: 0.2em 0; border-radius: 3px;
+	font: 13px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+.markdown code::before, .markdown code::after {
+    letter-spacing: -0.2em;
+    content: "\00a0";
+}
+.markdown pre code::before, .markdown pre code::after { display: none; }
 .markdown h2, .markdown h3, .markdown h4, .markdown h5, .markdown h6 { line-height: 3rem; }
 .markdown h2 { border-bottom: 1px solid #ddd; margin-bottom: -1px; }
 .markdown h3, .markdown h4, .markdown h5, .markdown h6 { line-height:1.5rem; margin-top: 1.5rem; }
 .markdown h3 + h4, .markdown h4 + h5, .markdown h5 + h6 { margin-top: 0.75rem; }
-.markdown p, .markdown ul, .markdown pre code { margin: 0.75rem 0;}
+.markdown p, .markdown ul, .markdown ol, .markdown pre code { margin: 0.75rem 0;}
 .markdown ul { list-style: outside disc; padding-left: 30px }
+.markdown ul ul, .markdown ul ol, .markdown ol ol, .markdown ol ul { margin: 0;}
