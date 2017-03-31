@@ -53,7 +53,7 @@
       "init-declarations": "off",
       "max-len": ["error", 100],
       "max-params": "off",
-      "max-statements": ["error", 10, { "ignoreTopLevelFunctions": true }],
+      "max-statements": ["error", 15, { "ignoreTopLevelFunctions": true }],
       "multiline-ternary": "off",
       "newline-before-return": "off",
       "no-empty": ["error", { "allowEmptyCatch": true }],
