@@ -17,10 +17,7 @@ const content = `// DO NOT MODIFY!
 
 "use strict";
 
-// 'debug' workaround
-window.process = { type: "renderer", env: { DEBUG: "*" } };
-require("debug");
-delete window.process;
+require("./debug-workaround");
 
 const debug = require("debug")("service");
 
