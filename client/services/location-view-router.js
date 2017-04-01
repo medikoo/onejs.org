@@ -17,6 +17,8 @@ const onNewPathname = (pathname) => {
 
 		locationService.onChange();
 		window.dispatchEvent(loadEvent);
+	}, (err) => {
+		if (err.code !== "OUTDATED_ROUTE_CALL") throw err;
 	});
 };
 
