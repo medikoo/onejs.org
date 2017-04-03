@@ -19,7 +19,10 @@
     "es5-ext": "^0.10.14",
     "fs2": "^0.2.4",
     "highlight.js": "^9.10",
+    "html-dom-event-ext": "0.1",
+    "html-dom-ext": "0.1",
     "markdown-it": "^8.3.1",
+    "memoizee": "^0.4.4",
     "next-tick": "1",
     "parseurl": "^1.3.1",
     "querystring2": "1",
@@ -29,6 +32,7 @@
     "st": "^1.2",
     "url3": "1",
     "tar-pack": "^3.4",
+    "timers-ext": "^0.1.1",
     "webmake-middleware": "^0.1.2"
   },
   "devDependences": {
