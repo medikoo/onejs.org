@@ -10,9 +10,12 @@ const not   = require("es5-ext/array/#/diff")
 var selected = [];
 
 const onChange = () => {
-	const id = location.hash.slice(1) || null
-	    , newSelected = document.querySelectorAll(`a[href=${ JSON.stringify(`#${ id }`) }`)
-			, toUnmark = not.call(selected, newSelected)
+	const id = location.hash.slice(1) || null;
+
+	const newSelected =
+		document.querySelectorAll(`a[href=${ id ? JSON.stringify(`#${ id }`) : "'.'" }]`);
+
+	const toUnmark = not.call(selected, newSelected)
 			, toMark = not.call(newSelected, selected);
 
 	toUnmark.forEach((el) => el.classList.remove(className));
