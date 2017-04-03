@@ -1,5 +1,5 @@
-// Process serving simple aid scripts, which improve UX also when
-// application is served via SSR
+// Process serving simple aid scripts, to be served when application is provided via SSR
+// (otherwise scripts are loaded direclty with SPA main configuration)
 
 "use strict";
 
