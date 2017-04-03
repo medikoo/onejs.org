@@ -1,6 +1,4 @@
-// Location URL handling:
-// - Prevents page reloads on a[href] clicks and switches the urls with History API
-// - Emits events on any location change
+// When link with hash is clicked, we ensure scroll to target
 
 "use strict";
 
