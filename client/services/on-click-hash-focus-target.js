@@ -25,9 +25,19 @@ exports.scrollToTarget = () => {
 	return true;
 };
 
+// React on url changes that come from click action
 window.addEventListener("popstate", (ev) => {
 	if (ev.isTrusted || clickMeta.isRegular) setTimeout(exports.scrollToTarget);
 }, false);
+
+// Ensure scroll to target if current url is clicked
+document.addEventListener("click", (ev) => {
+	var { aHref } = clickMeta;
+
+	if (!aHref || !clickMeta.isRegular) return;
+
+	if (aHref.href === location.href) exports.scrollToTarget();
+});
 
 // Custom event, which maybe invoked by view rendering engine
 window.addEventListener("pageload", () => {
