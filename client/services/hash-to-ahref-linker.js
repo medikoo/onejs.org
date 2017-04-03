@@ -24,9 +24,8 @@ const onChange = () => {
 };
 
 document.addEventListener("DOMContentLoaded", onChange);
-window.addEventListener("spaviewload", onChange);
+window.addEventListener("pageload", onChange);
 window.addEventListener("hashchange", onChange);
-document.addEventListener("click", () => setTimeout(onChange));
 onChange();
 
 debug("hash -> ahref mark");
