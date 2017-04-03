@@ -26,7 +26,7 @@ exports.scrollToTarget = () => {
 };
 
 window.addEventListener("popstate", (ev) => {
-	if (ev.isTrusted || isRegularClick()) setTimeout(exports.scrollToTarget, 0);
+	if (ev.isTrusted || isRegularClick()) setTimeout(exports.scrollToTarget);
 }, false);
 
 // Custom event, which maybe invoked by view rendering engine
