@@ -42,7 +42,7 @@ module.exports = (conf) => {
 	module.exports = null;
 	contextSelector = ensureString(ensureObject(conf).contextSelector);
 	document.addEventListener("DOMContentLoaded", reload);
-	window.addEventListener("spaviewload", reload);
+	window.addEventListener("pageload", reload);
 	reload();
 	window.addEventListener("scroll", throttle(updateHash, UPDATE_FREQ));
 	updateHash();
