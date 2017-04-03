@@ -20,7 +20,7 @@ exports.header = function () {
 	p({ class: "header-version" }, `@  ${ this.version }`);
 	p({ class: "header-repo-link" },
 		a({ href: `https://github.com/${ this.githubPath }` },
-			img({ src: `${ assetsRoot }logo-github.svg`, alt: "GitHub" })));
+			img({ src: `${ assetsRoot }octoface.svg`, alt: "GitHub" })));
 };
 
 exports.main = function () {

@@ -35,7 +35,7 @@ header h1 { font-size: 2rem; line-height: 3rem; }
 
 .header-version { font-size: 1.5rem; color: #777; }
 .header-repo-link { flex-grow: 2; text-align: right; }
-.header-repo-link img { height: 25px; opacity: 0.8; vertical-align: -3px; }
+.header-repo-link img { height: 33px; opacity: 0.8; vertical-align: -3px; }
 
 main { display: flex; align-items: stretch; }
 
