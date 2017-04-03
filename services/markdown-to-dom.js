@@ -63,4 +63,4 @@ module.exports = (markdown) => {
 	};
 };
 
-debug("markdown-to-dom");
+debug("markdown -> dom");
