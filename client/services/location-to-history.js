@@ -2,10 +2,10 @@
 
 "use strict";
 
-const ensureString   = require("es5-ext/object/validate-stringifiable-value")
-    , isRegularClick = require("html-dom-event-ext/detect-regular-click")(document)
-		, isExternal     = require("html-dom-ext/anchor/#/is-external")
-    , debug          = require("debug")("service")
+const ensureString = require("es5-ext/object/validate-stringifiable-value")
+    , clickMeta    = require("html-dom-event-ext/get-current-click-meta")(document)
+		, isExternal   = require("html-dom-ext/anchor/#/is-external")
+    , debug        = require("debug")("service")
 
     , isExt = RegExp.prototype.test.bind(/\.[a-zA-Z0-9]+$/)
     , ahrefTpl = document.createElement("a");
@@ -24,7 +24,7 @@ exports.goto = (newHref) => {
 document.addEventListener("click", (ev) => {
 	var el = ev.target;
 
-	if (!isRegularClick()) return;
+	if (!clickMeta.isRegular) return;
 
 	while (el && el.nodeName.toLowerCase() !== "a") el = el.parentNode;
 	if (!el) return;
