@@ -6,7 +6,7 @@ const ensureObject = require("es5-ext/object/valid-object")
     , throttle     = require("timers-ext/throttle")
     , debug        = require("debug")("service")
 
-    , MAX_HEADING = 6, UPDATE_FREQ = 100;
+    , MAX_HEADING = 6, UPDATE_FREQ = 100, ACCEPTED_MARGIN = 20;
 
 var contextSelector, headings = [];
 
@@ -24,7 +24,7 @@ const updateHash = () => {
 	var current;
 
 	headings.some((heading) => {
-		if (heading.getBoundingClientRect().top > 0) return true;
+		if (heading.getBoundingClientRect().top > ACCEPTED_MARGIN) return true;
 		current = heading;
 		return false;
 	});
