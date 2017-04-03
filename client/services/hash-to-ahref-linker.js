@@ -29,4 +29,4 @@ window.addEventListener("hashchange", onChange);
 document.addEventListener("click", () => setTimeout(onChange));
 onChange();
 
-debug("hash-to-ahref-linker");
+debug("hash -> mark ahref");
