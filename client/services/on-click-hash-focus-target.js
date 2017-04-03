@@ -31,7 +31,7 @@ window.addEventListener("popstate", (ev) => {
 }, false);
 
 // Ensure scroll to target if current url is clicked
-document.addEventListener("click", (ev) => {
+document.addEventListener("click", () => {
 	var { aHref } = clickMeta;
 
 	if (!aHref || !clickMeta.isRegular) return;
