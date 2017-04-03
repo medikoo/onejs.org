@@ -32,10 +32,12 @@ const updateHash = () => {
 	    , hash = location.hash.slice(1) || null;
 
 	if (id === hash) return;
+	const oldURL = location.href
+	    , newURL = location.href.slice(0, -location.hash.length) + (id ? `#${ id }` : "");
 
-	history.pushState({}, "",
-		location.href.slice(0, -location.hash.length) + (id ? `#${ id }` : ""));
+	history.pushState({}, "", newURL);
 	window.dispatchEvent(new PopStateEvent("popstate", { state: {} }));
+	window.dispatchEvent(new HashChangeEvent("hashchange", { oldURL, newURL }));
 };
 
 module.exports = (conf) => {

@@ -13,8 +13,12 @@ const ensureString   = require("es5-ext/object/validate-stringifiable-value")
 exports.goto = (newHref) => {
 	ahrefTpl.href = ensureString(newHref);
 	if (ahrefTpl.href === location.href) return;
-	history.pushState({}, "", ahrefTpl.href);
+	const hasHashChanged = ahrefTpl.hash !== location.hash
+	    , oldURL = location.href, newURL  = ahrefTpl.href;
+
+	history.pushState({}, "", newURL);
 	window.dispatchEvent(new PopStateEvent("popstate", { state: {} }));
+	if (hasHashChanged) window.dispatchEvent(new HashChangeEvent("hashchange", { oldURL, newURL }));
 };
 
 document.addEventListener("click", (ev) => {
