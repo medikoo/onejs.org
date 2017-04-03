@@ -19,7 +19,7 @@
     "es5-ext": "^0.10.14",
     "fs2": "^0.2.4",
     "highlight.js": "^9.10",
-    "html-dom-event-ext": "0.1",
+    "html-dom-event-ext": "0.2",
     "html-dom-ext": "0.1",
     "markdown-it": "^8.3.1",
     "memoizee": "^0.4.4",
