@@ -4,6 +4,4 @@
 "use strict";
 
 require("../lib/debug-workaround");
-
-require("../services/top-heading-hash-linker")({ contextSelector: ".markdown" });
-require("../services/hash-to-ahref-linker");
+require("../lib/scripts");

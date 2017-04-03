@@ -10,3 +10,5 @@ require("../lib/setup-package-meta-resolver");
 require("../services/location-to-history");
 require("../services/on-click-hash-focus-target");
 require("../services/history-to-view-router");
+
+require("../lib/scripts");
