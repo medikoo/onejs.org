@@ -22,7 +22,7 @@ exports.goto = (newHref) => {
 };
 
 document.addEventListener("click", (ev) => {
-	var aHref = clickMeta.aHref;
+	var { aHref } = clickMeta;
 
 	if (!aHref || !clickMeta.isRegular) return;
 
