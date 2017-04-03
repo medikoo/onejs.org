@@ -32,7 +32,9 @@ const updateHash = () => {
 	    , hash = location.hash.slice(1) || null;
 
 	if (id === hash) return;
-	history.pushState({}, "", location.href.slice(0, -location.hash.length) + id ? `#${ id }` : "");
+
+	history.pushState({}, "",
+		location.href.slice(0, -location.hash.length) + (id ? `#${ id }` : ""));
 	window.dispatchEvent(new PopStateEvent("popstate", { state: {} }));
 };
 
