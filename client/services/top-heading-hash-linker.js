@@ -3,7 +3,7 @@
 const ensureObject = require("es5-ext/object/valid-object")
     , ensureString = require("es5-ext/object/validate-stringifiable-value")
 		, memoize      = require("memoizee")
-    , debounce     = require("timers-ext/once")
+    , throttle     = require("timers-ext/throttle")
     , debug        = require("debug")("service")
 
     , MAX_HEADING = 6, UPDATE_FREQ = 100;
@@ -42,7 +42,7 @@ module.exports = (conf) => {
 	document.addEventListener("DOMContentLoaded", reload);
 	window.addEventListener("spaviewload", reload);
 	reload();
-	window.addEventListener("scroll", debounce(updateHash, UPDATE_FREQ));
+	window.addEventListener("scroll", throttle(updateHash, UPDATE_FREQ));
 	updateHash();
 	debug("top-heading -> hash");
 };
