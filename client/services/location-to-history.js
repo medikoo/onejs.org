@@ -22,19 +22,16 @@ exports.goto = (newHref) => {
 };
 
 document.addEventListener("click", (ev) => {
-	var el = ev.target;
+	var aHref = clickMeta.aHref;
 
-	if (!clickMeta.isRegular) return;
+	if (!aHref || !clickMeta.isRegular) return;
 
-	while (el && el.nodeName.toLowerCase() !== "a") el = el.parentNode;
-	if (!el) return;
-
-	if (isExternal.call(el, location.href)) return;
-	if (isExt(el.href)) return;
+	if (isExternal.call(aHref, location.href)) return;
+	if (isExt(aHref.href)) return;
 
 	ev.preventDefault();
 
-	exports.goto(el.href);
+	exports.goto(aHref.href);
 }, false);
 
 debug("click link -> history");
