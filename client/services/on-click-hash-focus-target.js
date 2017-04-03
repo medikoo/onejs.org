@@ -6,7 +6,7 @@
 
 const isRegularClick = require("html-dom-event-ext/detect-regular-click")(document)
     , serviceDebug   = require("debug")("service")
-    , debug          = require("debug")("scroll-to-target");
+    , debug          = require("debug")("focus-target");
 
 exports.scrollToTarget = () => {
 	const hash = location.hash.slice(1) || null;
