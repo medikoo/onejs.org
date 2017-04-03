@@ -7,7 +7,7 @@ const ensureString = require("es5-ext/object/validate-stringifiable-value")
 		, isExternal   = require("html-dom-ext/anchor/#/is-external")
     , debug        = require("debug")("service")
 
-    , isExt = RegExp.prototype.test.bind(/\.[a-zA-Z0-9]+$/)
+    , hasExt = RegExp.prototype.test.bind(/\.[a-zA-Z0-9]+$/)
     , ahrefTpl = document.createElement("a");
 
 exports.goto = (newHref) => {
@@ -25,9 +25,8 @@ document.addEventListener("click", (ev) => {
 	var { aHref } = clickMeta;
 
 	if (!aHref || !clickMeta.isRegular) return;
-
 	if (isExternal.call(aHref, location.href)) return;
-	if (isExt(aHref.href)) return;
+	if (hasExt(aHref.href)) return;
 
 	ev.preventDefault();
 
