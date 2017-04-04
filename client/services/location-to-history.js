@@ -9,17 +9,17 @@ const ensureString = require("es5-ext/object/validate-stringifiable-value")
     , debug        = require("debug")("click-link-to-history")
 
     , hasExt = RegExp.prototype.test.bind(/\.[a-zA-Z0-9]+$/)
-    , ahrefTpl = document.createElement("a");
+    , aHrefTpl = document.createElement("a");
 
 const getLocalUrl = (location) => location.pathname + location.search + location.hash;
 
 exports.goto = (newHref) => {
-	ahrefTpl.href = ensureString(newHref);
-	if (ahrefTpl.href === location.href) return;
-	const hasHashChanged = ahrefTpl.hash !== location.hash
-	    , oldURL = location.href, newURL  = ahrefTpl.href;
+	aHrefTpl.href = ensureString(newHref);
+	if (aHrefTpl.href === location.href) return;
+	const hasHashChanged = aHrefTpl.hash !== location.hash
+	    , oldURL = location.href, newURL  = aHrefTpl.href;
 
-	debug(`${ getLocalUrl(location) } -> ${ getLocalUrl(ahrefTpl) }`);
+	debug(`${ getLocalUrl(location) } -> ${ getLocalUrl(aHrefTpl) }`);
 	history.pushState({}, "", newURL);
 	window.dispatchEvent(new PopStateEvent("popstate", { state: {} }));
 	if (hasHashChanged) window.dispatchEvent(new HashChangeEvent("hashchange", { oldURL, newURL }));
