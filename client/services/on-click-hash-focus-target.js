@@ -6,6 +6,8 @@ const clickMeta    = require("html-dom-event-ext/get-current-click-meta")(docume
     , serviceDebug = require("debug")("service")
     , debug        = require("debug")("focus-target");
 
+require("event-emitter")(exports);
+
 exports.scrollToTarget = () => {
 	const hash = location.hash.slice(1) || null;
 	var target;
@@ -20,6 +22,7 @@ exports.scrollToTarget = () => {
 	debug(target ? hash : "<top>");
 	if (target) target.scrollIntoView({ behavior: "smooth" });
 	else window.scroll(0, 0);
+	exports.emit("scroll", { target });
 	return true;
 };
 
