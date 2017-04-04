@@ -46,7 +46,7 @@ const updateHash = () => {
 };
 
 module.exports = (conf) => {
-	module.exports = exports = ee();
+	module.exports = exports = ee({ reload });
 	contextSelector = ensureString(ensureObject(conf).contextSelector);
 	document.addEventListener("DOMContentLoaded", reload);
 	window.addEventListener("pageload", reload);
