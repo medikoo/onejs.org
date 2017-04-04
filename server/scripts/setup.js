@@ -2,8 +2,13 @@
 
 "use strict";
 
-const resolveClientEnv = require("./generate-client-env-resolver");
+const deferred         = require("deferred")
+    , resolveClientEnv = require("./generate-client-env-resolver")
+    , generateCss      = require("./generate-css");
 
-module.exports = () => resolveClientEnv();
+module.exports = () => deferred(
+	resolveClientEnv(),
+	generateCss()
+);
 
 if (require.main === module) module.exports().done();
