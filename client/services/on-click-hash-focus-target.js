@@ -40,11 +40,4 @@ document.addEventListener("click", () => {
 	if (aHref.href === location.href) exports.scrollToTarget();
 }, true);
 
-// Custom event, which maybe invoked by view rendering engine
-window.addEventListener("pageload", () => {
-	// Timeout resolution to ensure we have full render of content
-	// (without that scrollToTarget results with misalign scrolls)
-	if (location.hash.slice(1)) setTimeout(exports.scrollToTarget);
-}, false);
-
 serviceDebug("click hash -> scroll target");
