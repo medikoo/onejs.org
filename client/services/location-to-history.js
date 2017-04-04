@@ -11,7 +11,7 @@ const ensureString = require("es5-ext/object/validate-stringifiable-value")
     , hasExt = RegExp.prototype.test.bind(/\.[a-zA-Z0-9]+$/)
     , aHrefTpl = document.createElement("a");
 
-const getLocalUrl = (location) => location.pathname + location.search + location.hash;
+const getLocalUrl = (urlObj) => urlObj.pathname + urlObj.search + urlObj.hash;
 
 exports.goto = (newHref) => {
 	aHrefTpl.href = ensureString(newHref);
