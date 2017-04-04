@@ -4,7 +4,8 @@ const ensureObject = require("es5-ext/object/valid-object")
     , ensureString = require("es5-ext/object/validate-stringifiable-value")
 		, memoize      = require("memoizee")
     , throttle     = require("timers-ext/throttle")
-    , debug        = require("debug")("service")
+    , debugService = require("debug")("service")
+    , debug        = require("debug")("top-heading-to-hash")
 
     , MAX_HEADING = 6, UPDATE_FREQ = 100, ACCEPTED_MARGIN = 20;
 
@@ -35,6 +36,7 @@ const updateHash = () => {
 	const oldURL = location.href
 	    , newURL = location.href.slice(0, -location.hash.length) + (id ? `#${ id }` : "");
 
+	debug(`${ hash || "<null>" } -> ${ id || "<null>" }`);
 	history.pushState({}, "", newURL);
 	window.dispatchEvent(new PopStateEvent("popstate", { state: {} }));
 	window.dispatchEvent(new HashChangeEvent("hashchange", { oldURL, newURL }));
@@ -48,5 +50,5 @@ module.exports = (conf) => {
 	reload();
 	window.addEventListener("scroll", throttle(updateHash, UPDATE_FREQ));
 	updateHash();
-	debug("top-heading -> hash");
+	debugService("top-heading -> hash");
 };
