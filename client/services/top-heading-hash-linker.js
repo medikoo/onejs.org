@@ -2,6 +2,7 @@
 
 const ensureObject = require("es5-ext/object/valid-object")
     , ensureString = require("es5-ext/object/validate-stringifiable-value")
+    , ee           = require("event-emitter")
 		, memoize      = require("memoizee")
     , throttle     = require("timers-ext/throttle")
     , clickMeta    = require("html-dom-event-ext/get-current-click-meta")(document)
@@ -41,10 +42,11 @@ const updateHash = () => {
 	history.pushState({}, "", newURL);
 	window.dispatchEvent(new PopStateEvent("popstate", { state: {} }));
 	window.dispatchEvent(new HashChangeEvent("hashchange", { oldURL, newURL }));
+	exports.emit("link", { oldURL, newURL });
 };
 
 module.exports = (conf) => {
-	module.exports = null;
+	module.exports = exports = ee();
 	contextSelector = ensureString(ensureObject(conf).contextSelector);
 	document.addEventListener("DOMContentLoaded", reload);
 	window.addEventListener("pageload", reload);
