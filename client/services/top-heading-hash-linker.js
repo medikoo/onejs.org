@@ -56,6 +56,5 @@ module.exports = (conf) => {
 		if (clickMeta.stamp > (Date.now() - CLICK_WAIT)) return;
 		throttledUpdateHash();
 	});
-	updateHash();
 	debugService("top-heading -> hash");
 };
