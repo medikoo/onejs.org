@@ -42,6 +42,9 @@
   "eslintConfig": {
     "extends": "eslint:all",
     "root": true,
+    "parserOptions": {
+      "ecmaVersion": 2017
+    },
     "env": {
         "commonjs": true,
         "es6": true
