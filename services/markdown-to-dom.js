@@ -32,7 +32,7 @@ module.exports = (markdown) => {
 	tmpEl.innerHTML = md.render(markdown);
 
 	// Discard h1 (assumption: there's only one h1 and it purely mentions package name)
-	for (const el of tmpEl.querySelectorAll("h1")) removeElement(el);
+	for (const el of Array.from(tmpEl.querySelectorAll("h1"))) removeElement(el);
 
 	// Build table of contents (assumption: h2 is only one main subheading of documentation)
 	var currentLevel = 3, list = ul({ class: "toc" });
@@ -41,7 +41,7 @@ module.exports = (markdown) => {
 
 	if (overviewHeading) list.append(li(p(a({ href: "." }, "Overview"))));
 
-	for (const heading of tmpEl.querySelectorAll("h3, h4, h5, h6")) {
+	for (const heading of Array.from(tmpEl.querySelectorAll("h3, h4, h5, h6"))) {
 		const level = Number(heading.nodeName[1]);
 
 		if (!heading.id) heading.id = toId(heading.innerText);
