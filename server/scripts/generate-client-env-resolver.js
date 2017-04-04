@@ -23,12 +23,13 @@ const debug = require("debug")("service");
 
 const env = Object.assign(require("../../services/env"), ${ JSON.stringify({
 	assetsRoot: env.assetsRoot,
+	env: env.env,
 	role: "client"
 }, null, "\t") });
 
 module.exports = function (processName) {
 	env.processName = processName;
-	debug(\`env client:\${ processName }\`);
+	debug(\`env client:\${ processName } \${ env.env }\`);
 	module.exports = null;
 };
 `;

@@ -44,6 +44,6 @@ env.role = "server";
 
 module.exports = function (processName) {
 	env.processName = processName;
-	debug(`env server:${ processName }`);
+	debug(`env server:${ processName } ${ env.env }`);
 	module.exports = null;
 };
