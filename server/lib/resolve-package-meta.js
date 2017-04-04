@@ -28,11 +28,12 @@ module.exports = (name) => requestPromise({
 	const npmMeta = JSON.parse(npmMetaString)
 	    , version = npmMeta["dist-tags"].latest
 			, packageDir = resolve(tmpdir, `onejs-package-${ name }`)
-			, deferred = new Deferred()
-			, unpacker = unpack(packageDir, (err) => {
-				if (err) deferred.reject(err);
-				else deferred.resolve();
-			});
+			, deferred = new Deferred();
+
+	const unpacker = unpack(packageDir, (err) => {
+		if (err) deferred.reject(err);
+		else deferred.resolve();
+	});
 
 	request(npmMeta.versions[version].dist.tarball).pipe(unpacker);
 
