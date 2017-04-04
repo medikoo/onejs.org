@@ -5,10 +5,13 @@
 const ensureString = require("es5-ext/object/validate-stringifiable-value")
     , clickMeta    = require("html-dom-event-ext/get-current-click-meta")(document)
 		, isExternal   = require("html-dom-ext/anchor/#/is-external")
-    , debug        = require("debug")("service")
+    , debugService = require("debug")("service")
+    , debug        = require("debug")("click-link-to-history")
 
     , hasExt = RegExp.prototype.test.bind(/\.[a-zA-Z0-9]+$/)
     , ahrefTpl = document.createElement("a");
+
+const getLocalUrl = (location) => location.pathname + location.search + location.hash;
 
 exports.goto = (newHref) => {
 	ahrefTpl.href = ensureString(newHref);
@@ -16,6 +19,7 @@ exports.goto = (newHref) => {
 	const hasHashChanged = ahrefTpl.hash !== location.hash
 	    , oldURL = location.href, newURL  = ahrefTpl.href;
 
+	debug(`${ getLocalUrl(location) } -> ${ getLocalUrl(ahrefTpl) }`);
 	history.pushState({}, "", newURL);
 	window.dispatchEvent(new PopStateEvent("popstate", { state: {} }));
 	if (hasHashChanged) window.dispatchEvent(new HashChangeEvent("hashchange", { oldURL, newURL }));
@@ -33,4 +37,4 @@ document.addEventListener("click", (ev) => {
 	exports.goto(aHref.href);
 }, false);
 
-debug("click link -> history");
+debugService("click link -> history");
