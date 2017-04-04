@@ -11,6 +11,8 @@ const ensureString = require("es5-ext/object/validate-stringifiable-value")
     , hasExt = RegExp.prototype.test.bind(/\.[a-zA-Z0-9]+$/)
     , aHrefTpl = document.createElement("a");
 
+require("event-emitter")(exports);
+
 const getLocalUrl = (urlObj) => urlObj.pathname + urlObj.search + urlObj.hash;
 
 exports.goto = (newHref) => {
@@ -23,6 +25,7 @@ exports.goto = (newHref) => {
 	history.pushState({}, "", newURL);
 	window.dispatchEvent(new PopStateEvent("popstate", { state: {} }));
 	if (hasHashChanged) window.dispatchEvent(new HashChangeEvent("hashchange", { oldURL, newURL }));
+	exports.emit("change", { oldURL, newURL });
 };
 
 document.addEventListener("click", (ev) => {
