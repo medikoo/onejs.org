@@ -2,9 +2,9 @@
 
 "use strict";
 
-const { extname } = require("path")
-    , parseUrl    = require("parseurl")
-    , env         = require("../../../services/env");
+const { extname }    = require("path")
+    , parseUrl       = require("parseurl")
+    , { assetsRoot } = require("../../../services/env");
 
 module.exports = function (req, res, next) {
 	if (extname(parseUrl(req).pathname)) {
@@ -16,6 +16,6 @@ module.exports = function (req, res, next) {
 	res.setHeader("Content-Type", "text/html; charset=utf-8");
 	res.setHeader("Cache-Control", "max-age=365000000, immutable");
 	res.end(`<!DOCTYPE html>
-	<link href="${ env.assetsRoot }style.css" rel="stylesheet" />
-	<script src="${ env.assetsRoot }main.js"></script>`);
+	<link href="${ assetsRoot }style.css" rel="stylesheet" />
+	<script src="${ assetsRoot }main.js"></script>`);
 };
