@@ -60,7 +60,7 @@ module.exports = (conf) => {
 	};
 	document.addEventListener("click", exports.debounce, true);
 	window.addEventListener("scroll", () => {
-		// Do not react after clicks (takes into account smooth scroll time)
+		// Do not react in debounce period
 		if (!isActive) return;
 		// Timeout as in Safari it gets in before actual click, after which we want to debounce
 		setTimeout(throttledUpdateHash);
