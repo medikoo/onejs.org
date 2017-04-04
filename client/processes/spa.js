@@ -15,6 +15,7 @@ require("../lib/scripts");
 const topHeadingHashLinker = require("../services/top-heading-hash-linker");
 
 // Additional bindings between services:
+const RENDER_WAIT_TIMEOUT = 150;
 
 // After new page is loaded
 historyViewRouter.on("load", () => {
@@ -22,7 +23,15 @@ historyViewRouter.on("load", () => {
 	topHeadingHashLinker.reload();
 
 	// Scroll to eventual target
-	// Timeout resolution to ensure we have full render of content
-	// (without that scrollToTarget results with misalign scrolls)
-	if (location.hash.slice(1)) setTimeout(onClickTargetFocuser.scrollToTarget);
+	if (location.hash.slice(1)) {
+	  // Timeout resolution to ensure we have full render of content
+	  // (without that scrollToTarget results with misalign scrolls)
+		// Done twice as in some browsers (Chrome) 0 timeout works great
+		// in others (FF) longer timeout is needed to resolve neatly
+		setTimeout(onClickTargetFocuser.scrollToTarget);
+		setTimeout(onClickTargetFocuser.scrollToTarget, RENDER_WAIT_TIMEOUT);
+	}
 });
+
+// Do not link headings right after target scroll into view
+onClickTargetFocuser.on("scroll", topHeadingHashLinker.debounce);
