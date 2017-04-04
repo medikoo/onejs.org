@@ -24,7 +24,7 @@ const resolveGithubPath = (url) => {
 module.exports = (name) => requestPromise({
 	url: `https://registry.npmjs.org/${ name }`,
 	headers: { Accept: "application/vnd.npm.install-v1+json" }
-})(([, npmMetaString]) => {
+})(async ([, npmMetaString]) => {
 	const npmMeta = JSON.parse(npmMetaString)
 	    , version = npmMeta["dist-tags"].latest
 			, packageDir = resolve(tmpdir, `onejs-package-${ name }`)
@@ -35,16 +35,22 @@ module.exports = (name) => requestPromise({
 			});
 
 	request(npmMeta.versions[version].dist.tarball).pipe(unpacker);
-	return deferred.promise(() => new Deferred(
+
+	// Wait until tarball unpacks
+	await deferred.promise;
+
+	// Resolve meta and documentation
+	var [documentation, meta] = await new Deferred(
 		readFile(resolve(packageDir, "README.md")),
 		readFile(resolve(packageDir, "package.json"))
-	)(([documentation, meta]) => {
-		meta = JSON.parse(meta);
-		return {
-			name,
-			version,
-			documentation: String(documentation),
-			githubPath: resolveGithubPath(meta.repository.url)
-		};
-	}));
+	);
+
+	meta = JSON.parse(meta);
+	documentation = String(documentation);
+	return {
+		name,
+		version,
+		documentation,
+		githubPath: resolveGithubPath(meta.repository.url)
+	};
 });
