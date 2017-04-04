@@ -16,10 +16,12 @@ const topHeadingHashLinker = require("../services/top-heading-hash-linker");
 
 // Additional bindings between services:
 
-// Reload headings after new page is loaded
+// After new page is loaded
 historyViewRouter.on("load", () => {
+	// Reload headings configuration in top headings linker
 	topHeadingHashLinker.reload();
 
+	// Scroll to eventual target
 	// Timeout resolution to ensure we have full render of content
 	// (without that scrollToTarget results with misalign scrolls)
 	if (location.hash.slice(1)) setTimeout(onClickTargetFocuser.scrollToTarget);
