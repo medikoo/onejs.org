@@ -35,6 +35,7 @@
     "url3": "1",
     "tar-pack": "^3.4",
     "timers-ext": "^0.1.2",
+    "webmake": "^0.3.43",
     "webmake-middleware": "^0.1.2"
   },
   "devDependences": {
