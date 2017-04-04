@@ -2,9 +2,10 @@
 
 "use strict";
 
-const { extname }    = require("path")
-    , parseUrl       = require("parseurl")
-    , { assetsRoot } = require("../../../services/env");
+const { extname }         = require("path")
+    , parseUrl            = require("parseurl")
+    , { assetsRoot, env } = require("../../../services/env")
+		, htmlRenderer        = require("../html-renderer");
 
 module.exports = function (req, res, next) {
 	const { pathname } = parseUrl(req);
@@ -16,8 +17,13 @@ module.exports = function (req, res, next) {
 
 	res.setHeader("X-UA-Compatible", "IE=edge,chrome=1");
 	res.setHeader("Content-Type", "text/html; charset=utf-8");
-	res.setHeader("Cache-Control", "max-age=365000000, immutable");
-	res.end(`<!DOCTYPE html>
-	<link href="${ assetsRoot }style.css" rel="stylesheet" />
-	<script src="${ assetsRoot }main.js"></script>`);
+
+	if (env === "development") {
+		res.setHeader("Cache-Control", "max-age=365000000, immutable");
+		res.end(`<!DOCTYPE html>
+		<link href="${ assetsRoot }style.css" rel="stylesheet" />
+		<script src="${ assetsRoot }main.js"></script>`);
+	} else {
+		htmlRenderer(pathname).done(res.end.bind(res));
+	}
 };
