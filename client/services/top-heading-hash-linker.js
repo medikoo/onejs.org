@@ -59,6 +59,10 @@ module.exports = (conf) => {
 		debounceScroll();
 	};
 	document.addEventListener("click", exports.debounce, true);
+	window.addEventListener("popstate", (ev) => {
+		if (ev.isTrusted) exports.debounce();
+	}, false);
+
 	window.addEventListener("scroll", () => {
 		// Do not react in debounce period
 		if (!isActive) return;
