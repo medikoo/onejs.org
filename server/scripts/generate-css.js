@@ -1,4 +1,4 @@
-// Generates env service resolver dedicated for client side
+// Generates CSS files to be served directly in production mode
 
 "use strict";
 
