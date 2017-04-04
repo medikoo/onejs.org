@@ -49,7 +49,6 @@ module.exports = (conf) => {
 	module.exports = exports = ee({ reload });
 	contextSelector = ensureString(ensureObject(conf).contextSelector);
 	document.addEventListener("DOMContentLoaded", reload);
-	window.addEventListener("pageload", reload);
 	reload();
 	const throttledUpdateHash = throttle(updateHash, UPDATE_FREQ);
 
