@@ -13,6 +13,7 @@ const { resolve }      = require("path")
 
     , env              = require("../../../services/env")
 		, clientApp        = require("./client-app")
+		, css              = require("./css")
 		, rest             = require("./rest")
 
     , rootDir = resolve(__dirname, "../../../")
@@ -38,6 +39,9 @@ if (env.env === "development") {
 		"/main.js": resolve(rootDir, "client/processes/spa.js"),
 		"/scripts.js": resolve(rootDir, "client/processes/scripts.js")
 	}, { ignore: [resolve(rootDir, "node_modules/debug/src/node.js")] }));
+
+	// Serve autoprefixed CSS on the fly
+	app.use(css({ "/style.css": resolve(rootDir, "client/css/style.css") }));
 }
 
 // Serve system common static files
