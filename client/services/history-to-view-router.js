@@ -7,6 +7,8 @@ const debugService = require("debug")("service")
     , debug        = require("debug")("view-router")
     , viewRouter   = require("../../services/view-router");
 
+require("event-emitter")(exports);
+
 var currentPathname;
 
 exports.update = () => {
@@ -16,7 +18,7 @@ exports.update = () => {
 	currentPathname = newPathname;
 	debug(`-> ${ newPathname }`);
 	viewRouter.route(newPathname).done(
-		() => window.dispatchEvent(new Event("pageload")),
+		() => exports.emit("load", { pathname: newPathname }),
 		(err) => {
 			if (err.code !== "OUTDATED_ROUTE_CALL") throw err;
 		}
