@@ -8,7 +8,7 @@ const ensureObject = require("es5-ext/object/valid-object")
     , debugService = require("debug")("service")
     , debug        = require("debug")("top-heading-to-hash")
 
-    , MAX_HEADING = 6, UPDATE_FREQ = 100, ACCEPTED_MARGIN = 20, CLICK_WAIT = 700;
+    , MAX_HEADING = 6, UPDATE_FREQ = 100, ACCEPTED_MARGIN = 20, WAIT_SPAN = 700;
 
 var contextSelector, headings = [];
 
@@ -53,7 +53,7 @@ module.exports = (conf) => {
 
 	window.addEventListener("scroll", () => {
 		// Do not react after clicks (takes into account smooth scroll time)
-		if (clickMeta.stamp > (Date.now() - CLICK_WAIT)) return;
+		if (clickMeta.stamp > (Date.now() - WAIT_SPAN)) return;
 		throttledUpdateHash();
 	});
 	debugService("top-heading -> hash");
