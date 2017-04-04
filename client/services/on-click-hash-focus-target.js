@@ -35,7 +35,7 @@ document.addEventListener("click", () => {
 	if (!aHref || !clickMeta.isRegular) return;
 
 	if (aHref.href === location.href) exports.scrollToTarget();
-});
+}, true);
 
 // Custom event, which maybe invoked by view rendering engine
 window.addEventListener("pageload", () => {
