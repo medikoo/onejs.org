@@ -4,10 +4,11 @@ const ensureObject = require("es5-ext/object/valid-object")
     , ensureString = require("es5-ext/object/validate-stringifiable-value")
 		, memoize      = require("memoizee")
     , throttle     = require("timers-ext/throttle")
+    , clickMeta    = require("html-dom-event-ext/get-current-click-meta")(document)
     , debugService = require("debug")("service")
     , debug        = require("debug")("top-heading-to-hash")
 
-    , MAX_HEADING = 6, UPDATE_FREQ = 100, ACCEPTED_MARGIN = 20;
+    , MAX_HEADING = 6, UPDATE_FREQ = 100, ACCEPTED_MARGIN = 20, CLICK_WAIT = 700;
 
 var contextSelector, headings = [];
 
@@ -48,7 +49,13 @@ module.exports = (conf) => {
 	document.addEventListener("DOMContentLoaded", reload);
 	window.addEventListener("pageload", reload);
 	reload();
-	window.addEventListener("scroll", throttle(updateHash, UPDATE_FREQ));
+	const throttledUpdateHash = throttle(updateHash, UPDATE_FREQ);
+
+	window.addEventListener("scroll", () => {
+		// Do not react after clicks (takes into account smooth scroll time)
+		if (clickMeta.stamp > (Date.now() - CLICK_WAIT)) return;
+		throttledUpdateHash();
+	});
 	updateHash();
 	debugService("top-heading -> hash");
 };
