@@ -60,6 +60,7 @@ module.exports = (conf) => {
 	};
 	document.addEventListener("click", exports.debounce, true);
 	window.addEventListener("popstate", (ev) => {
+		// Debounce on history (back/forward) navigation
 		if (ev.isTrusted) exports.debounce();
 	}, false);
 
