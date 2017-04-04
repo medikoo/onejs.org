@@ -3,7 +3,7 @@
 
 ### Local deployment
 
-Pre-requisites: [Git](https://git-scm.com/) and relatively recent (v4+) version of [Node.js](https://nodejs.org/en/) and [npm](https://www.npmjs.com/) on board
+Pre-requisites: [Git](https://git-scm.com/) and relatively recent (v7.6+) version of [Node.js](https://nodejs.org/en/) and [npm](https://www.npmjs.com/) on board
 
 	$ git clone git@github.com:medikoo/onejs.org.git && cd onejs.org
 	$ npm start
