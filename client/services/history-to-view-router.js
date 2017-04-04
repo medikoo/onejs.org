@@ -14,8 +14,8 @@ exports.update = () => {
 
 	if (newPathname === currentPathname) return;
 	currentPathname = newPathname;
-	debug(`-> ${ currentPathname }`);
-	viewRouter.route(currentPathname).done(
+	debug(`-> ${ newPathname }`);
+	viewRouter.route(newPathname).done(
 		() => window.dispatchEvent(new Event("pageload")),
 		(err) => {
 			if (err.code !== "OUTDATED_ROUTE_CALL") throw err;
