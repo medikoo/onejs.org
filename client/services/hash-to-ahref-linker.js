@@ -2,8 +2,9 @@
 
 "use strict";
 
-const not   = require("es5-ext/array/#/diff")
-    , debug = require("debug")("service")
+const not          = require("es5-ext/array/#/diff")
+    , debugService = require("debug")("service")
+    , debug        = require("debug")("ahref-hash-mark")
 
     , className = "link-current-target";
 
@@ -18,6 +19,9 @@ const onChange = () => {
 	const toUnmark = not.call(selected, newSelected)
 			, toMark = not.call(newSelected, selected);
 
+	if (!toUnmark.length && !toMark.length) return;
+
+	debug(id);
 	toUnmark.forEach((el) => el.classList.remove(className));
 	toMark.forEach((el) => el.classList.add(className));
 	selected = newSelected;
@@ -28,4 +32,4 @@ window.addEventListener("pageload", onChange);
 window.addEventListener("hashchange", onChange);
 onChange();
 
-debug("hash -> ahref mark");
+debugService("hash -> ahref mark");
