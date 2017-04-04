@@ -16,7 +16,7 @@ const ensureNaturalNumber = require("es5-ext/object/ensure-natural-number-value"
 		, env                 = require("../../services/env")
 
 		, DEFAULT_PORT = 3177
-		, envOptions = new Set("development", "production");
+		, envOptions = new Set(["development", "production"]);
 
 var isEnvProvided = false;
 
