@@ -7,8 +7,8 @@ const { assetsRoot, role } = require("../services/env")
     , { a, div, footer, link, main, script } = require("../services/domjs").ns;
 
 exports.head = function () {
-	link({ href: `${ assetsRoot }style.css`, rel: "stylesheet" });
-	if (role === "server") script({ src: `${ assetsRoot }scripts.js`, async: true });
+	link({ href: `${ assetsRoot }css/style.css`, rel: "stylesheet" });
+	if (role === "server") script({ src: `${ assetsRoot }js/scripts.js`, async: true });
 };
 
 exports.body = function () {

@@ -21,8 +21,8 @@ module.exports = function (req, res, next) {
 	if (env === "development") {
 		res.setHeader("Cache-Control", "max-age=365000000, immutable");
 		res.end(`<!DOCTYPE html>
-		<link href="${ assetsRoot }style.css" rel="stylesheet" />
-		<script src="${ assetsRoot }main.js"></script>`);
+		<link href="${ assetsRoot }css/style.css" rel="stylesheet" />
+		<script src="${ assetsRoot }js/spa.js"></script>`);
 	} else {
 		htmlRenderer(pathname).done(res.end.bind(res));
 	}

@@ -10,7 +10,7 @@ const deferred     = require("deferred")
 
     , rootPath = resolve(__dirname, "../../")
 		, sourcePath = resolve(rootPath, "client/css")
-    , targetPath = resolve(rootPath, "assets");
+    , targetPath = resolve(rootPath, "assets/css");
 
 module.exports = async () => {
 	debug("generate-css");

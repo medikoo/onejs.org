@@ -1,3 +1,4 @@
 /env.js
-/assets/style.css
+/assets/css
+/assets/js
 *.generated.*

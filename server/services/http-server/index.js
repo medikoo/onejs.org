@@ -36,12 +36,12 @@ app.use(compression());
 if (env.env === "development") {
 	// Serve client JS bundle on the fly
 	app.use(webmake({
-		"/main.js": resolve(rootDir, "client/processes/spa.js"),
-		"/scripts.js": resolve(rootDir, "client/processes/scripts.js")
+		"/js/spa.js": resolve(rootDir, "client/processes/spa.js"),
+		"/js/scripts.js": resolve(rootDir, "client/processes/scripts.js")
 	}, { ignore: [resolve(rootDir, "node_modules/debug/src/node.js")] }));
 
 	// Serve autoprefixed CSS on the fly
-	app.use(css({ "/style.css": resolve(rootDir, "client/css/style.css") }));
+	app.use(css({ "/css/style.css": resolve(rootDir, "client/css/style.css") }));
 }
 
 // Serve system common static files

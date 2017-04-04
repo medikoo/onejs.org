@@ -10,12 +10,12 @@ const deferred     = require("deferred")
 
     , rootPath = resolve(__dirname, "../../")
 		, sourcePath = resolve(rootPath, "client/processes")
-    , targetPath = resolve(rootPath, "assets");
+    , targetPath = resolve(rootPath, "assets/js");
 
 const generate = (name) => webmake(
 	resolve(sourcePath, name),
 	{ ignore: [resolve(rootPath, "node_modules/debug/src/node.js")] }
-)((content) => writeFile(resolve(targetPath, name), content));
+)((content) => writeFile(resolve(targetPath, name), content, { intermediate: true }));
 
 module.exports = () => {
 	debug("generate-js");
