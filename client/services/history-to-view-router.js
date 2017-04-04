@@ -3,8 +3,9 @@
 
 "use strict";
 
-const debug      = require("debug")("service")
-    , viewRouter = require("../../services/view-router");
+const debugService = require("debug")("service")
+    , debug        = require("debug")("view-router")
+    , viewRouter   = require("../../services/view-router");
 
 var currentPathname;
 
@@ -13,6 +14,7 @@ exports.update = () => {
 
 	if (newPathname === currentPathname) return;
 	currentPathname = newPathname;
+	debug(`-> ${ currentPathname }`);
 	viewRouter.route(currentPathname).done(
 		() => window.dispatchEvent(new Event("pageload")),
 		(err) => {
@@ -24,4 +26,4 @@ exports.update = () => {
 exports.update();
 window.addEventListener("popstate", exports.update, false);
 
-debug("history -> view-router");
+debugService("history -> view-router");
