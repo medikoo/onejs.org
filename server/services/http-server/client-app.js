@@ -7,7 +7,9 @@ const { extname }    = require("path")
     , { assetsRoot } = require("../../../services/env");
 
 module.exports = function (req, res, next) {
-	if (extname(parseUrl(req).pathname)) {
+	const { pathname } = parseUrl(req);
+
+	if (extname(pathname)) {
 		next();
 		return;
 	}
