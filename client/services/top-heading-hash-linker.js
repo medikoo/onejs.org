@@ -4,8 +4,8 @@ const ensureObject = require("es5-ext/object/valid-object")
     , ensureString = require("es5-ext/object/validate-stringifiable-value")
     , ee           = require("event-emitter")
 		, memoize      = require("memoizee")
-    , throttle     = require("timers-ext/throttle")
-    , clickMeta    = require("html-dom-event-ext/get-current-click-meta")(document)
+    , debounce     = require("timers-ext/once")
+	  , throttle     = require("timers-ext/throttle")
     , debugService = require("debug")("service")
     , debug        = require("debug")("top-heading-to-hash")
 
@@ -49,13 +49,21 @@ module.exports = (conf) => {
 	module.exports = exports = ee({ reload });
 	contextSelector = ensureString(ensureObject(conf).contextSelector);
 	document.addEventListener("DOMContentLoaded", reload);
-	reload();
-	const throttledUpdateHash = throttle(updateHash, UPDATE_FREQ);
 
+	var isActive = true;
+	const throttledUpdateHash = throttle(updateHash, UPDATE_FREQ)
+	    , debounceScroll = debounce(() => isActive = true, WAIT_SPAN);
+
+	exports.debounce = () => {
+		isActive = false;
+		debounceScroll();
+	};
+	document.addEventListener("click", exports.debounce, true);
 	window.addEventListener("scroll", () => {
 		// Do not react after clicks (takes into account smooth scroll time)
-		if (clickMeta.stamp > (Date.now() - WAIT_SPAN)) return;
+		if (!isActive) return;
 		throttledUpdateHash();
 	});
+	reload();
 	debugService("top-heading -> hash");
 };
