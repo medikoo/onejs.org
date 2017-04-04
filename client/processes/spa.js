@@ -8,7 +8,7 @@ Error.stackTraceLimit = Infinity;
 require("../lib/setup-env-service.generated")("spa");
 require("../lib/setup-package-meta-resolver");
 require("../services/location-to-history");
-require("../services/on-click-hash-focus-target");
+const onClickTargetFocuser = require("../services/on-click-hash-focus-target");
 const historyViewRouter = require("../services/history-to-view-router");
 
 require("../lib/scripts");
@@ -17,4 +17,10 @@ const topHeadingHashLinker = require("../services/top-heading-hash-linker");
 // Additional bindings between services:
 
 // Reload headings after new page is loaded
-historyViewRouter.on("load", topHeadingHashLinker.reload);
+historyViewRouter.on("load", () => {
+	topHeadingHashLinker.reload();
+
+	// Timeout resolution to ensure we have full render of content
+	// (without that scrollToTarget results with misalign scrolls)
+	if (location.hash.slice(1)) setTimeout(onClickTargetFocuser.scrollToTarget);
+});
