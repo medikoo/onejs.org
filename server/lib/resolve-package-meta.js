@@ -3,6 +3,7 @@
 "use strict";
 
 const Deferred      = require("deferred")
+    , memoize       = require("memoizee")
     , { resolve }   = require("path")
 		, tmpdir        = require("os").tmpdir()
 		, { promisify } = Deferred
@@ -11,7 +12,8 @@ const Deferred      = require("deferred")
 		, readFile      = require("fs2/read-file")
 
 		, requestPromise = promisify(request)
-		, githubPathRe = /^git:\/\/github.com\/(([^\\]+)\/(.+)).git$/;
+		, githubPathRe = /^git:\/\/github.com\/(([^\\]+)\/(.+)).git$/
+    , HOUR = 3600000; // 1000 * 60 * 60
 
 const resolveGithubPath = (url) => {
 	if (!url) return null;
@@ -21,7 +23,7 @@ const resolveGithubPath = (url) => {
 	return match[1];
 };
 
-module.exports = (name) => requestPromise(
+module.exports = memoize((name) => requestPromise(
 	`https://registry.npmjs.org/${ name }/latest`
 )(async ([, npmMetaString]) => {
 	const npmMeta = JSON.parse(npmMetaString)
@@ -53,4 +55,4 @@ module.exports = (name) => requestPromise(
 		documentation,
 		githubPath: resolveGithubPath(meta.repository.url)
 	};
-});
+}), { promise: true, primitive: true, maxAge: HOUR });
