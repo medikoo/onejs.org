@@ -3,8 +3,9 @@
 
 "use strict";
 
-const request = require("./request");
+const memoize = require("memoizee/plain")
+    , request = require("./request");
 
 require("../../services/package-meta-resolver")(
-	(packageName) => request.get("/package-meta.json", { name: packageName })
+	memoize((packageName) => request.get("/package-meta.json", { name: packageName }))
 );
