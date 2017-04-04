@@ -42,9 +42,10 @@ module.exports = (markdown) => {
 	if (overviewHeading) list.append(li(p(a({ href: "." }, "Overview"))));
 
 	for (const heading of Array.from(tmpEl.querySelectorAll("h3, h4, h5, h6"))) {
-		const level = Number(heading.nodeName[1]);
+		const level = Number(heading.nodeName[1])
+		    , headingText = heading.innerText || heading.textContent;
 
-		if (!heading.id) heading.id = toId(heading.innerText);
+		if (!heading.id) heading.id = toId(headingText);
 
 		while (level < currentLevel) {
 			list = list.parentNode.parentNode;
@@ -55,7 +56,7 @@ module.exports = (markdown) => {
 			list = list.lastChild.appendChild(ul());
 			++currentLevel;
 		}
-		list.append(li(p(a({ href: `#${ heading.id }` }, heading.innerText))));
+		list.append(li(p(a({ href: `#${ heading.id }` }, headingText))));
 	}
 	return {
 		toc,
