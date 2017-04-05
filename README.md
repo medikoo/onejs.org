@@ -1,4 +1,4 @@
-# [onejs.org](https://onejs.org)
+# onejs.org
 ## Simple documentation website for JS packages (WIP)
 
 ### Local deployment
@@ -8,7 +8,9 @@ Pre-requisites: [Git](https://git-scm.com/), [Node.js](https://nodejs.org/en/) (
 	$ git clone git@github.com:medikoo/onejs.org.git && cd onejs.org
 	$ npm start
 
-If not stated otherwise (in an eventual [environment](#environment) configuration), the portal will be accessible at `3177` port:  [http://localhost:3177](http://localhost:3177) 
+If not stated [otherwise](#environment), application will be accessible at `3177` port:  [http://localhost:3177](http://localhost:3177)
+
+Aside of bare home page, what's served is demo of documentation page accessible at  [/package/memoizee/](http://localhost:3177/package/memoizee/)
 
 ### Environment settings
 
