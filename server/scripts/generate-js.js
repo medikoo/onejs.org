@@ -7,7 +7,7 @@ const deferred     = require("deferred")
     , writeFile    = require("fs2/write-file")
 		, debug        = require("debug")("setup")
     , webmake      = require("webmake")
-    , minify       = require("../lib/minify")
+    , minify       = require("../lib/minify-js")
 
     , rootPath = resolve(__dirname, "../../")
 		, sourcePath = resolve(rootPath, "client/processes")
