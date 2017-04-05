@@ -5,7 +5,7 @@
 const { gate }            = require("deferred")
     , memoize             = require("memoizee")
     , debugService        = require("debug")("service")
-		, { documentElement } = require("../../services/document")
+    , { documentElement } = require("../../services/document")
     , viewRouter          = require("../../services/view-router");
 
 module.exports = gate(memoize(
