@@ -36,6 +36,7 @@
     "tar-pack": "^3.4",
     "timers-ext": "^0.1.2",
     "uglify-js": "git+https://github.com/mishoo/UglifyJS2.git#harmony",
+    "uglifycss": "^0.0.25",
     "webmake": "^0.3.43",
     "webmake-middleware": "^0.1.2"
   },
