@@ -7,6 +7,7 @@ const deferred     = require("deferred")
     , writeFile    = require("fs2/write-file")
 		, debug        = require("debug")("setup")
     , webmake      = require("webmake")
+    , minify       = require("../lib/minify")
 
     , rootPath = resolve(__dirname, "../../")
 		, sourcePath = resolve(rootPath, "client/processes")
@@ -15,7 +16,7 @@ const deferred     = require("deferred")
 const generate = (name) => webmake(
 	resolve(sourcePath, name),
 	{ ignore: [resolve(rootPath, "node_modules/debug/src/node.js")] }
-)((content) => writeFile(resolve(targetPath, name), content, { intermediate: true }));
+)((content) => writeFile(resolve(targetPath, name), minify(content), { intermediate: true }));
 
 module.exports = () => {
 	debug("generate-js");
