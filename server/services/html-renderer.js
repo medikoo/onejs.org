@@ -9,7 +9,7 @@ const { gate }            = require("deferred")
     , viewRouter          = require("../../services/view-router");
 
 module.exports = gate(memoize(
-	(pathname) => viewRouter.route(pathname)(() => documentElement.innerHTML),
+	(pathname) => viewRouter.route(pathname)(() => `<!DOCTYPE html>${ documentElement.innerHTML }`),
 	{ promise: true, primitive: true }
 ), 1);
 
